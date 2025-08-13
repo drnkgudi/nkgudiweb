@@ -1,207 +1,632 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Nkgudi | Surgical Care</title>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Custom Tailwind Config -->
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: '#367522',
-            dark: '#121212',
-          },
-          boxShadow: {
-            'glass': '0 4px 30px rgba(0, 0, 0, 0.1)',
-          },
-          backdropBlur: {
-            'xs': '2px',
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Nkgudi - Specialist Surgeon</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+            min-height: 60vh;
         }
-      }
-    }
-  </script>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
-  <!-- Custom CSS -->
-  <style>
-    body {
-      font-family: 'Manrope', sans-serif;
-    }
-    .glass-card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    .dark .glass-card {
-      background: rgba(30, 30, 30, 0.4);
-      border-color: rgba(255, 255, 255, 0.1);
-    }
-  </style>
+        
+        .testimonial-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .procedure-item {
+            transition: all 0.3s ease;
+        }
+        
+        .procedure-item:hover {
+            background-color: #f8f9fa;
+            transform: translateX(5px);
+        }
+        
+        .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
 </head>
-<body class="bg-gray-50 dark:bg-dark transition-colors">
-  <!-- ===== NAVBAR ===== -->
-  <nav class="fixed w-full z-50 bg-white/80 dark:bg-dark/80 backdrop-blur-md shadow-sm">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#" class="text-2xl font-bold text-primary">Dr. Nkgudi</a>
-      <div class="flex items-center space-x-6">
-        <div class="hidden md:flex space-x-8">
-          <a href="#home" class="hover:text-primary">Home</a>
-          <a href="#about" class="hover:text-primary">Journey</a>
-          <a href="#services" class="hover:text-primary">Services</a>
-          <a href="#contact" class="hover:text-primary">Contact</a>
-        </div>
-        <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
-          <svg id="theme-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path id="theme-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-          </svg>
-        </button>
-        <button class="md:hidden" id="mobile-menu-button">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ===== HERO SECTION ===== -->
-  <section id="home" class="min-h-screen pt-32 pb-20 px-6 flex items-center bg-gradient-to-br from-primary/10 via-white to-primary/5 dark:from-primary/5 dark:via-dark dark:to-primary/5">
-    <div class="container mx-auto grid md:grid-cols-2 gap-16 items-center">
-      <div>
-        <h1 class="text-5xl md:text-6xl font-bold mb-6">Precision <span class="text-primary">Surgery</span></h1>
-        <p class="text-xl mb-8 opacity-90">Dr. Boitumelo Nkgudi combines cutting-edge techniques with compassionate care.</p>
-        <div class="flex space-x-4">
-          <button onclick="openModal()" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full font-bold transition-all transform hover:scale-105">
-            Book Consultation
-          </button>
-          <a href="#services" class="border border-primary text-primary hover:bg-primary/10 px-8 py-3 rounded-full font-bold transition">Our Services</a>
-        </div>
-      </div>
-      <div class="relative">
-        <div class="glass-card rounded-3xl overflow-hidden shadow-xl">
-          <img src="assets/images/dr-nkgudi-professional.jpg" alt="Dr. Nkgudi" class="w-full h-auto">
-        </div>
-        <div class="absolute -bottom-6 -left-6 bg-primary text-white px-6 py-3 rounded-full shadow-lg">
-          <span class="font-bold">20+ Years</span> of Experience
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== STORY SECTION ===== -->
-  <section id="about" class="py-20 bg-white dark:bg-gray-900">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <span class="text-primary font-bold">JOURNEY</span>
-        <h2 class="text-4xl font-bold mt-2">From Doubt to <span class="text-primary">Excellence</span></h2>
-      </div>
-      <div class="max-w-4xl mx-auto">
-        <div class="relative">
-          <!-- Timeline Bar -->
-          <div class="absolute left-8 top-0 h-full w-1 bg-primary/20 dark:bg-primary/30"></div>
-          <!-- Timeline Items -->
-          <div class="space-y-12">
-            <!-- Item 1 -->
-            <div class="relative pl-24">
-              <div class="absolute left-0 top-0 w-16 h-16 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center">
-                <div class="w-4 h-4 rounded-full bg-primary"></div>
-              </div>
-              <h3 class="text-2xl font-bold mb-2">2002</h3>
-              <p class="opacity-90">Matriculated from South African College High School, Cape Town</p>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-blue-900 sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-xl font-bold" href="#">Dr. Nkgudi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#patient-info">Patient Info</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#procedures">Procedures</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                    <li class="nav-item">
+                        <button class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#contactModal">
+                            <i class="fas fa-calendar-alt me-2"></i>Book Appointment
+                        </button>
+                    </li>
+                </ul>
             </div>
-            <!-- Add more timeline items here -->
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- ===== SERVICES SECTION ===== -->
-  <section id="services" class="py-20 bg-gray-50 dark:bg-gray-800">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <span class="text-primary font-bold">SERVICES</span>
-        <h2 class="text-4xl font-bold mt-2">Specialized <span class="text-primary">Surgical Care</span></h2>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Service Card 1 -->
-        <div class="glass-card p-8 rounded-2xl hover:shadow-lg transition-all hover:-translate-y-2">
-          <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold mb-3">General Surgery</h3>
-          <p class="opacity-80">Comprehensive procedures for abdominal, thyroid, and soft tissue conditions.</p>
+    <!-- Hero Section -->
+    <section class="hero-section text-white d-flex align-items-center">
+        <div class="container text-center py-5">
+            <h1 class="display-4 fw-bold mb-4">Dr. B.R. Nkgudi</h1>
+            <p class="lead mb-5">Specialist Surgeon Providing Compassionate and Expert Care</p>
+            <button class="btn btn-primary btn-lg px-4 me-2" data-bs-toggle="modal" data-bs-target="#contactModal">
+                Book Consultation
+            </button>
+            <a href="#about" class="btn btn-outline-light btn-lg px-4">Learn More</a>
         </div>
-        <!-- Add more service cards -->
-      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-6 mb-lg-0">
+                    <h2 class="text-3xl font-bold mb-6 text-blue-900">My Journey in Medicine</h2>
+                    <div class="space-y-4 text-gray-700">
+                        <p>This was certainly the case when in his final year of high school, he expressed an interest in medicine to the family GP and was advised to consider a more attainable career goal.</p>
+                        <p class="italic font-medium">"He told me that medicine was difficult and probably not for me, and I resolved there and then that I would prove him wrong," Dr Nkgudi recalls.</p>
+                        <p>He went on to do just that and in a decisive fashion. After matriculating from South African College High School, Cape Town in 2002, he earned his Bachelor of Medicine and Bachelor of Surgery degrees from the University of Cape Town in 2008.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="doc.jpg" alt="Doctor portrait" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Patient Information Section -->
+    <section id="patient-info" class="py-16 bg-white">
+        <div class="container">
+            <h2 class="text-3xl font-bold mb-12 text-center text-blue-900">Patient Information & Resources</h2>
+            
+            <div class="row">
+                <div class="col-md-6 mb-6">
+                    <div class="bg-blue-50 p-6 rounded-lg shadow-md h-full">
+                        <h3 class="text-xl font-bold mb-4 text-blue-800">PRURITUS ANI</h3>
+                        <p class="text-gray-700 mb-4">Pruritus ani is the medical term for anal itching. It's a common condition that can cause significant discomfort.</p>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                            <li>Causes include hygiene issues, skin conditions, infections, and dietary factors</li>
+                            <li>Treatment focuses on identifying and addressing the underlying cause</li>
+                            <li>Proper hygiene and avoiding irritants are key to prevention</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-6">
+                    <div class="bg-blue-50 p-6 rounded-lg shadow-md h-full">
+                        <h3 class="text-xl font-bold mb-4 text-blue-800">Patient Resources</h3>
+                        <p class="text-gray-700 mb-4">Download helpful resources for your visit or procedure:</p>
+                        <div class="space-y-3">
+                            <a href="#" class="flex items-center text-blue-700 hover:text-blue-900">
+                                <i class="fas fa-file-pdf mr-2"></i> Pre-operative Instructions
+                            </a>
+                            <a href="#" class="flex items-center text-blue-700 hover:text-blue-900">
+                                <i class="fas fa-file-pdf mr-2"></i> Post-operative Care Guide
+                            </a>
+                            <a href="#" class="flex items-center text-blue-700 hover:text-blue-900">
+                                <i class="fas fa-file-pdf mr-2"></i> What to Expect During Your Visit
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Procedures Section -->
+    <section id="procedures" class="py-16 bg-gray-50">
+        <div class="container">
+            <h2 class="text-3xl font-bold mb-12 text-center text-blue-900">Specialized Procedures</h2>
+            
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="p-5 bg-white rounded-lg shadow-md procedure-item">
+                        <h3 class="text-xl font-bold mb-3 text-blue-800">PERI-ANAL CONDITIONS</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>PERI-ANAL ABSCESS</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>PERI-ANAL FISSURE</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>PERI-ANAL FISTULA</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="p-5 bg-white rounded-lg shadow-md procedure-item">
+                        <h3 class="text-xl font-bold mb-3 text-blue-800">AMPUTATIONS</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>AMPUTATION ABOVE KNEE</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>AMPUTATION BELOW KNEE</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>AMPUTATION THROUGH KNEE</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>AMPUTATION TOE</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="p-5 bg-white rounded-lg shadow-md procedure-item">
+                        <h3 class="text-xl font-bold mb-3 text-blue-800">HERNIA REPAIRS</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>HERNIA FEMORAL OPEN REPAIR</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>HERNIA INCISIONAL OPEN OR LAPAROSCOPIC REPAIR</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>HERNIA INGUINAL OPEN REPAIR</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>HERNIA UMBILICAL OPEN REPAIR</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>HERNIA INGUINAL LAPAROSCOPIC REPAIR</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="p-5 bg-white rounded-lg shadow-md procedure-item">
+                        <h3 class="text-xl font-bold mb-3 text-blue-800">OTHER PROCEDURES</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>TOENAIL EXCISION</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>GASTRECTOMY</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>LUMPS AND LESIONS EXCISION</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="p-5 bg-white rounded-lg shadow-md procedure-item">
+                        <h3 class="text-xl font-bold mb-3 text-blue-800">RECTAL PROCEDURES</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>RECTAL PROLAPSE ABDOMINAL REPAIR</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>RECTAL PROLAPSE DELORMES REPAIR</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>HEMORRHOIDECTOMY</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="p-5 bg-white rounded-lg shadow-md procedure-item">
+                        <h3 class="text-xl font-bold mb-3 text-blue-800">BOWEL & COLON PROCEDURES</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>APPENDISECTOMY LAPAROSCOPIC</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>APPENDISECTOMY OPEN</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>BOWEL FISTULA REPAIR</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>CLOSER STOMA</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>COLONOSCOPY</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="container">
+            <h2 class="text-3xl font-bold mb-12 text-center text-blue-900">Patient Testimonials</h2>
+            
+            <div class="row">
+                <!-- Testimonial 1 -->
+                <div class="col-md-6 col-lg-4 mb-6">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md testimonial-card h-full">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 text-xl mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic mb-4">"Dr. Nkgudi performed my hernia surgery and the results have been life-changing. His expertise and bedside manner are exceptional. I felt completely at ease throughout the entire process."</p>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center mr-3">
+                                <span class="text-blue-800 font-bold">JS</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">John S.</h4>
+                                <p class="text-gray-600 text-sm">Hernia Repair Patient</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="col-md-6 col-lg-4 mb-6">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md testimonial-card h-full">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 text-xl mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic mb-4">"After suffering with anal fissures for years, Dr. Nkgudi provided treatment that finally gave me relief. His knowledge of peri-anal conditions is unmatched. I'm forever grateful for his care."</p>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center mr-3">
+                                <span class="text-blue-800 font-bold">MA</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Mary A.</h4>
+                                <p class="text-gray-600 text-sm">Anal Fissure Patient</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="col-md-6 col-lg-4 mb-6">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md testimonial-card h-full">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 text-xl mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic mb-4">"My below-knee amputation was handled with such professionalism and compassion by Dr. Nkgudi. He explained everything clearly and the follow-up care was excellent. Highly recommend."</p>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center mr-3">
+                                <span class="text-blue-800 font-bold">TP</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Thomas P.</h4>
+                                <p class="text-gray-600 text-sm">Amputation Patient</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="col-md-6 col-lg-4 mb-6">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md testimonial-card h-full">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 text-xl mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic mb-4">"Dr. Nkgudi's laparoscopic appendectomy was quick and recovery was smooth. His surgical skill is evident, but what stood out was his genuine concern for my wellbeing."</p>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center mr-3">
+                                <span class="text-blue-800 font-bold">SR</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Sarah R.</h4>
+                                <p class="text-gray-600 text-sm">Appendectomy Patient</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 5 -->
+                <div class="col-md-6 col-lg-4 mb-6">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md testimonial-card h-full">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 text-xl mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic mb-4">"The Delorme's repair for my rectal prolapse was successful thanks to Dr. Nkgudi's expertise. He took time to answer all my questions and made a difficult situation much easier to handle."</p>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center mr-3">
+                                <span class="text-blue-800 font-bold">DG</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">David G.</h4>
+                                <p class="text-gray-600 text-sm">Rectal Prolapse Patient</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA Card -->
+                <div class="col-md-6 col-lg-4 mb-6">
+                    <div class="bg-blue-700 text-white p-6 rounded-lg shadow-md h-full flex flex-col justify-center items-center text-center">
+                        <h3 class="text-xl font-bold mb-3">Ready to Schedule Your Consultation?</h3>
+                        <p class="mb-4">Book an appointment with Dr. Nkgudi today</p>
+                        <button class="btn btn-light px-4" data-bs-toggle="modal" data-bs-target="#contactModal">
+                            Contact Us
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-blue-900 text-white">
+                    <h5 class="modal-title" id="contactModalLabel">Book a Consultation</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-5">
+                    <form id="appointmentForm">
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label for="firstName" class="form-label">First Name *</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label">Last Name *</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label for="email" class="form-label">Email *</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <input type="tel" class="form-control" id="phone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="procedure" class="form-label">Procedure of Interest</label>
+                            <select class="form-select" id="procedure">
+                                <option value="">Select a procedure</option>
+                                <option>PRURITUS ANI</option>
+                                <option>PERI-ANAL ABSCESS</option>
+                                <option>PERI-ANAL FISSURE</option>
+                                <option>PERI-ANAL FISTULA</option>
+                                <option>RECTAL PROLAPSE ABDOMINAL REPAIR</option>
+                                <option>AMPUTATION ABOVE KNEE</option>
+                                <option>AMPUTATION BELOW KNEE</option>
+                                <option>AMPUTATION THROUGH KNEE</option>
+                                <option>AMPUTATION TOE</option>
+                                <option>HERNIA FEMORAL OPEN REPAIR</option>
+                                <option>HERNIA INCISIONAL OPEN OR LAPAROSCOPIC REPAIR</option>
+                                <option>HERNIA INGUINAL OPEN REPAIR</option>
+                                <option>TOENAIL EXCISION</option>
+                                <option>GASTRECTOMY</option>
+                                <option>HERNIA UMBILICAL OPEN REPAIR</option>
+                                <option>HERNIA INGUINAL LAPAROSCOPIC REPAIR</option>
+                                <option>LUMPS AND LESIONS EXCISION</option>
+                                <option>RECTAL PROLAPSE DELORMES REPAIR</option>
+                                <option>APPENDISECTOMY LAPAROSCOPIC</option>
+                                <option>APPENDISECTOMY OPEN</option>
+                                <option>BOWEL FISTULA REPAIR</option>
+                                <option>CLOSER STOMA</option>
+                                <option>COLONOSCOPY</option>
+                                <option>HEMORRHOIDECTOMY</option>
+                                <option>Other (please specify in message)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label for="preferredDate" class="form-label">Preferred Date</label>
+                                <input type="date" class="form-control" id="preferredDate">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="preferredTime" class="form-label">Preferred Time</label>
+                                <select class="form-select" id="preferredTime">
+                                    <option value="">Any time</option>
+                                    <option>Morning (8am-12pm)</option>
+                                    <option>Afternoon (12pm-4pm)</option>
+                                    <option>Evening (4pm-7pm)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="Please provide any additional details about your condition or concerns"></textarea>
+                        </div>
+                        
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" id="consent" required>
+                            <label class="form-check-label" for="consent">
+                                I consent to having my data collected and stored for the purpose of scheduling this appointment *
+                            </label>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit Booking Request</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- ===== FLOATING ACTION BUTTON ===== -->
-  <button onclick="openModal()" class="fixed bottom-8 right-8 bg-primary hover:bg-primary/90 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition-transform hover:scale-110">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-    </svg>
-  </button>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-6 mb-lg-0">
+                    <h3 class="text-xl font-bold mb-4">Dr. B.R. Nkgudi</h3>
+                    <p class="mb-4">Specialist Surgeon providing expert care in a range of surgical procedures with compassion and professionalism.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-blue-300 text-xl"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-blue-300 text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-blue-300 text-xl"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white hover:text-blue-300 text-xl"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-6 mb-md-0">
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white">About Dr. Nkgudi</a></li>
+                        <li><a href="#patient-info" class="text-gray-400 hover:text-white">Patient Information</a></li>
+                        <li><a href="#procedures" class="text-gray-400 hover:text-white">Procedures</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white">Testimonials</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <h4 class="text-lg font-bold mb-4">Contact Information</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
+                            <span>123 Medical Center Drive, Suite 456<br>City, State 78901</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-blue-400"></i>
+                            <span>(123) 456-7890</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-blue-400"></i>
+                            <span>info@drnkgudi.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3 text-blue-400"></i>
+                            <span>Mon-Fri: 8:00 AM - 5:00 PM<br>Sat: 9:00 AM - 1:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="border-gray-700 my-6">
+            
+            <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <p class="text-gray-400 text-sm">&copy; 2023 Dr. B.R. Nkgudi. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="text-gray-400 text-sm">Medical Website Design by <a href="#" class="text-blue-400 hover:text-blue-300">VL Mutli Media </a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-  <!-- ===== MODAL (Custom) ===== -->
-  <div id="modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 opacity-0 pointer-events-none transition-opacity">
-    <div class="glass-card rounded-2xl p-8 max-w-md w-full mx-4 transform transition-all scale-95">
-      <div class="flex justify-between items-center mb-6">
-        <h3 class="text-2xl font-bold">Book Appointment</h3>
-        <button onclick="closeModal()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-      <form class="space-y-4">
-        <input type="text" placeholder="Full Name" class="w-full px-4 py-3 bg-transparent border rounded-lg focus:ring-2 focus:ring-primary">
-        <input type="tel" placeholder="Phone" class="w-full px-4 py-3 bg-transparent border rounded-lg focus:ring-2 focus:ring-primary">
-        <select class="w-full px-4 py-3 bg-transparent border rounded-lg focus:ring-2 focus:ring-primary">
-          <option>Consultation</option>
-          <option>Follow-up</option>
-        </select>
-        <button type="button" class="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg font-bold">
-          Request Appointment
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <!-- ===== SCRIPTS ===== -->
-  <script>
-    // Dark/Light Mode Toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    const themePath = document.getElementById('theme-path');
-    
-    themeToggle.addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-      const isDark = document.documentElement.classList.contains('dark');
-      themePath.setAttribute('d', isDark ? 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z' : 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z');
-    });
-
-    // Modal Controls
-    function openModal() {
-      const modal = document.getElementById('modal');
-      modal.classList.remove('opacity-0', 'pointer-events-none');
-      modal.querySelector('div').classList.remove('scale-95');
-    }
-    function closeModal() {
-      const modal = document.getElementById('modal');
-      modal.classList.add('opacity-0', 'pointer-events-none');
-      modal.querySelector('div').classList.add('scale-95');
-    }
-  </script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Form submission handling
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to your server
+            // For demo purposes, we'll just show an alert and close the modal
+            alert('Thank you for your booking request. We will contact you shortly to confirm your appointment.');
+            
+            // Get the modal instance and hide it
+            var modal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
+            modal.hide();
+            
+            // Reset the form
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
