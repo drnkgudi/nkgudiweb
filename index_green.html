@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Boitumelo Nkgudi - General Surgeon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #2E661E;
+        }
+        .bg-primary {
+            background-color: var(--primary-color);
+        }
+        .text-primary {
+            color: var(--primary-color);
+        }
+        .border-primary {
+            border-color: var(--primary-color);
+        }
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        .scrolling-header {
+            background-color: rgba(46, 102, 30, 0.9);
+            animation: slideIn 0.5s forwards;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+        .patient-condition {
+            transition: all 0.3s ease;
+        }
+        .patient-condition:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Scrolling Header -->
+    <div id="scrollingHeader" class="bg-primary text-white py-2 text-center text-sm sticky-header">
+        <p>Have any questions? Tel: (+27)18 065 0848 | info@nkgudi.co.za</p>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="bg-white shadow-md sticky-header scrolling-header">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-primary">
+                    Dr. Boitumelo Nkgudi
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#appointment" class="text-gray-700 hover:text-primary">Book Appointment</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary">About</a>
+                    <a href="#services" class="text-gray-700 hover:text-primary">Services</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-primary">Testimonials</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary">Contact</a>
+                </div>
+                <button id="mobileMenuButton" class="md:hidden text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="md:hidden hidden mt-4 pb-4">
+                <a href="#appointment" class="block py-2 text-gray-700 hover:text-primary">Book Appointment</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-primary">About</a>
+                <a href="#services" class="block py-2 text-gray-700 hover:text-primary">Services</a>
+                <a href="#testimonials" class="block py-2 text-gray-700 hover:text-primary">Testimonials</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-primary">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Appointment Form -->
+    <section id="appointment" class="bg-gray-50 py-16">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-6">Expert Surgical Care You Can Trust</h1>
+                    <p class="text-lg text-gray-600 mb-8">Dr. Boitumelo Nkgudi provides comprehensive general surgical services with compassion and expertise.</p>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold text-primary mb-4">Book an Appointment</h2>
+                        <form id="appointmentForm" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-2">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-gray-700 mb-2">Phone</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+                            </div>
+                            <div>
+                                <label for="date" class="block text-gray-700 mb-2">Preferred Date</label>
+                                <input type="date" id="date" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-700 mb-2">Message</label>
+                                <textarea id="message" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primary text-white py-2 px-4 rounded hover:bg-green-800 transition duration-300">Request Appointment</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-10 flex items-center">
+                    <img src="1.png" alt="Doctor with patient" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">About Dr. Boitumelo Nkgudi</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <img src="doc.jpg" alt="Dr. Nkgudi" class="rounded-full w-64 h-64 object-cover border-4 border-primary shadow-lg">
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <p class="text-lg text-gray-600 mb-6">
+                        This was certainly the case when in his final year of high school, he expressed an interest in medicine to the family GP and was advised to consider a more attainable career goal.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        "He told me that medicine was difficult and probably not for me, and I resolved there and then that I would prove him wrong," Dr. Nkgudi recalls. He went on to do just that and in a decisive fashion.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        After matriculating from South African College High School, Cape Town in 2002, he earned his Bachelor of Medicine and Bachelor of Surgery degrees from the University of Cape Town in 2008.
+                    </p>
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold text-primary mb-4">Professional Qualifications</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li>MBChB - University of Cape Town (2008)</li>
+                            <li>Fellowship in General Surgery - College of Medicine of South Africa</li>
+                            <li>Registered with the Health Professions Council of South Africa</li>
+                            <li>Member of the South African Medical Association</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Patient Information & Resources</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Dr. Nkgudi specializes in a wide range of general surgical procedures. Below are some of the conditions he treats and procedures he performs.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Condition Cards -->
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">PRURITUS ANI</h3>
+                    <p class="text-gray-600">Itching around the anal area that can be caused by various factors including infections, skin conditions, or hygiene issues.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">PERI-ANAL ABSCESS</h3>
+                    <p class="text-gray-600">A collection of pus near the anus caused by infection of small anal glands.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">PERI-ANAL FISSURE</h3>
+                    <p class="text-gray-600">A small tear in the thin, moist tissue (mucosa) that lines the anus.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">PERI-ANAL FISTULA</h3>
+                    <p class="text-gray-600">An abnormal tunnel between the anal canal and the outer skin of the anus.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">RECTAL PROLAPSE ABDOMINAL REPAIR</h3>
+                    <p class="text-gray-600">Surgical correction of rectal prolapse through an abdominal approach.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">AMPUTATION ABOVE KNEE</h3>
+                    <p class="text-gray-600">Surgical removal of a leg above the knee joint.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">AMPUTATION BELOW KNEE</h3>
+                    <p class="text-gray-600">Surgical removal of a leg below the knee joint.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">AMPUTATION THROUGH KNEE</h3>
+                    <p class="text-gray-600">Surgical removal of a leg through the knee joint.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">AMPUTATION TOE</h3>
+                    <p class="text-gray-600">Surgical removal of one or more toes.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">HERNIA FEMORAL OPEN REPAIR</h3>
+                    <p class="text-gray-600">Surgical repair of a femoral hernia through an open approach.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">HERNIA INCISIONAL OPEN OR LAPAROSCOPIC REPAIR</h3>
+                    <p class="text-gray-600">Repair of a hernia that occurs through a previous surgical incision, either open or laparoscopic.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">HERNIA INGUINAL OPEN REPAIR</h3>
+                    <p class="text-gray-600">Traditional open surgical repair of an inguinal hernia.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">TOENAIL EXCISION</h3>
+                    <p class="text-gray-600">Surgical removal of part or all of a toenail.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">GASTRECTOMY</h3>
+                    <p class="text-gray-600">Partial or complete surgical removal of the stomach.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">HERNIA UMBILICAL OPEN REPAIR</h3>
+                    <p class="text-gray-600">Open surgical repair of an umbilical hernia.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">HERNIA INGUINAL LAPAROSCOPIC REPAIR</h3>
+                    <p class="text-gray-600">Minimally invasive laparoscopic repair of an inguinal hernia.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">LUMPS AND LESIONS EXCISION</h3>
+                    <p class="text-gray-600">Surgical removal of abnormal lumps or lesions from the skin or subcutaneous tissue.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">RECTAL PROLAPSE DELORMES REPAIR</h3>
+                    <p class="text-gray-600">A surgical procedure to correct rectal prolapse by mucosal sleeve resection.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">APPENDISECTOMY LAPAROSCOPIC</h3>
+                    <p class="text-gray-600">Minimally invasive removal of the appendix.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">APPENDISECTOMY OPEN</h3>
+                    <p class="text-gray-600">Traditional open surgical removal of the appendix.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">BOWEL FISTULA REPAIR</h3>
+                    <p class="text-gray-600">Surgical repair of an abnormal connection between the bowel and another organ or the skin.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">CLOSER STOMA</h3>
+                    <p class="text-gray-600">Surgical closure of a stoma (artificial opening).</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">COLONOSCOPY</h3>
+                    <p class="text-gray-600">Endoscopic examination of the large bowel and the distal part of the small bowel.</p>
+                </div>
+                
+                <div class="patient-condition bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <h3 class="text-xl font-semibold text-primary mb-2">HEMORRHOIDECTOMY</h3>
+                    <p class="text-gray-600">Surgical removal of hemorrhoids.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Patient Testimonials</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl">J</div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">John M.</h4>
+                            <div class="flex text-yellow-400">
+                                ★ ★ ★ ★ ★
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Dr. Nkgudi performed my hernia surgery and the experience was excellent from start to finish. His bedside manner is exceptional and he took the time to explain everything clearly. My recovery was quicker than expected thanks to his expert care."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl">S</div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Sarah K.</h4>
+                            <div class="flex text-yellow-400">
+                                ★ ★ ★ ★ ★
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"After suffering with hemorrhoids for years, I finally consulted Dr. Nkgudi. His compassionate approach and surgical skill changed my life. The procedure was virtually painless and the follow-up care was thorough. I can't recommend him highly enough."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl">T</div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Thabo B.</h4>
+                            <div class="flex text-yellow-400">
+                                ★ ★ ★ ★ ★
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"When I needed an emergency appendectomy, Dr. Nkgudi was there for me. His calm demeanor and clear explanations helped ease my anxiety. The laparoscopic procedure left minimal scarring and I was back to work in no time. Truly a gifted surgeon."</p>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl">M</div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Mary P.</h4>
+                            <div class="flex text-yellow-400">
+                                ★ ★ ★ ★ ★
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Dr. Nkgudi treated my mother's rectal prolapse with such kindness and expertise. At 82, we were worried about surgery, but he explained all options clearly and the Delormes procedure was successful with minimal discomfort. His follow-up care was exceptional."</p>
+                </div>
+                
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl">D</div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">David L.</h4>
+                            <div class="flex text-yellow-400">
+                                ★ ★ ★ ★ ★
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"As a diabetic, I needed a toe amputation and was terrified. Dr. Nkgudi not only performed the procedure flawlessly but also took time to address all my concerns pre and post-op. His holistic approach to patient care is rare and deeply appreciated."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer Section -->
+    <footer id="contact" class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-2xl font-bold text-primary mb-4">Dr. Boitumelo Nkgudi</h3>
+                    <p class="mb-4">General Surgeon</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-xl font-semibold mb-4">OUR INFO</h3>
+                    <address class="not-italic">
+                        <p class="mb-2">Suite G1</p>
+                        <p class="mb-2">Mediclinic Emfuleni</p>
+                        <p class="mb-2">6 Jan van Riebeeck Boulevard</p>
+                        <p class="mb-2">Vanderbijlpark, 1900</p>
+                        <p class="mb-2">Email: <a href="mailto:info@nkgudi.co.za" class="text-primary hover:underline">info@nkgudi.co.za</a></p>
+                        <p>Tel: <a href="tel:+27180650848" class="text-primary hover:underline">(+27)18 065 0848</a></p>
+                    </address>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">OFFICE HOURS</h3>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between">
+                            <span>Monday</span>
+                            <span>8:00 AM - 5:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Tuesday</span>
+                            <span>8:00 AM - 5:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Wednesday</span>
+                            <span>8:00 AM - 5:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Thursday</span>
+                            <span>8:00 AM - 5:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Friday</span>
+                            <span>8:00 AM - 3:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Saturday</span>
+                            <span>Closed</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sunday</span>
+                            <span>Closed</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Dr. Boitumelo Nkgudi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Scrolling header effect
+        const scrollingHeader = document.getElementById('scrollingHeader');
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                scrollingHeader.classList.remove('scrolling-header');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !scrollingHeader.classList.contains('scrolling-header')) {
+                scrollingHeader.classList.add('scrolling-header');
+            } else if (currentScroll < lastScroll && scrollingHeader.classList.contains('scrolling-header')) {
+                scrollingHeader.classList.remove('scrolling-header');
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Form submission
+        const appointmentForm = document.getElementById('appointmentForm');
+        
+        appointmentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send this data to a server
+            console.log({ name, email, phone, date, message });
+            
+            // Show success message
+            alert('Thank you for your appointment request. We will contact you shortly to confirm.');
+            
+            // Reset form
+            appointmentForm.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
