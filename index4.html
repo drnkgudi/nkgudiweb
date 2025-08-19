@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Boitumelo Nkgudi - General Surgeon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #2E661E;
+        }
+        .bg-primary {
+            background-color: var(--primary-color);
+        }
+        .text-primary {
+            color: var(--primary-color);
+        }
+        .border-primary {
+            border-color: var(--primary-color);
+        }
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        .scrolling-header {
+            background-color: rgba(46, 102, 30, 0.9);
+            animation: slideIn 0.5s forwards;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+        .patient-condition {
+            transition: all 0.3s ease;
+        }
+        .patient-condition:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        #navLogo {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+#navLogo.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+ .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+    </style>
+</head>
+<body class="font-sans">
+   
+  <!-- Fixed Contact Bar (Always Visible) -->
+<div id="contactBar" class="bg-primary text-white py-2 text-center text-sm sticky top-0 z-50">
+    <p>Have any questions? Tel: (+27)18 065 0848 | info@nkgudi.co.za</p>
+</div>
+
+<!-- Main Navigation (Sticks Below Contact Bar) -->
+<nav id="mainNav" class="bg-white shadow-md sticky top-8 z-40 transition-all duration-300">
+    <div class="container mx-auto px-6 py-3">
+        <div class="flex justify-between items-center">
+            <!-- Logo Container (Hidden by Default) -->
+            <div id="navLogo" class="hidden md:flex items-center">
+                <img src="logo.png" alt="Dr. Nkgudi Logo" class="h-10 mr-4">
+                <div class="text-2xl font-bold text-primary">Dr. Boitumelo Nkgudi</div>
+            </div>
+            
+            <!-- Default Title (Visible Initially) -->
+            <div id="navTitle" class="text-2xl font-bold text-primary md:text-left">
+                Dr. Boitumelo Nkgudi
+            </div>
+            
+            <!-- Navigation Links -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#appointment" class="text-gray-700 hover:text-primary">Book Appointment</a>
+                <a href="#about" class="text-gray-700 hover:text-primary">About</a>
+                <a href="#services" class="text-gray-700 hover:text-primary">Services</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-primary">Testimonials</a>
+                <a href="#contact" class="text-gray-700 hover:text-primary">Contact</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuButton" class="md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+    <!-- Add this right after the </nav> closing tag and before the hero section -->
+<div class="w-full bg-gray-100 flex justify-center">
+    <img src="test1.png" alt="Medical Banner" class="max-w-full h-auto">
+</div>
+
+    <!-- Hero Section with Appointment Form -->
+    <!-- Hero Section with Background Image -->
+<section id="appointment" class="relative py-16 bg-gray-900">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0">
+        <img src="bg.jpg" alt="Medical Background" class="w-full h-full object-cover">
+        
+    </div>
+    
+    <!-- Content Container -->
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="flex flex-col md:flex-row">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl font-bold text-white mb-6">Expert Surgical Care You Can Trust</h1>
+                <p class="text-lg text-gray-200 mb-8">Dr. Boitumelo Nkgudi provides comprehensive general surgical services with compassion and expertise.</p>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Book an Appointment</h2>
+                    <form id="appointmentForm" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Full Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-700 mb-2">Phone</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+                        </div>
+                        <div>
+                            <label for="date" class="block text-gray-700 mb-2">Preferred Date</label>
+                            <input type="date" id="date" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2">Message</label>
+                            <textarea id="message" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white py-2 px-4 rounded hover:bg-green-800 transition duration-300">Request Appointment</button>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">About Dr. Boitumelo Nkgudi</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <img src="1.png" alt="Dr. Nkgudi" class="rounded-full w-64 h-64 object-cover border-4 border-primary shadow-lg">
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <p class="text-lg text-gray-600 mb-6">
+                        This was certainly the case when in his final year of high school, he expressed an interest in medicine to the family GP and was advised to consider a more attainable career goal.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        "He told me that medicine was difficult and probably not for me, and I resolved there and then that I would prove him wrong," Dr. Nkgudi recalls. He went on to do just that and in a decisive fashion.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        After matriculating from South African College High School, Cape Town in 2002, he earned his Bachelor of Medicine and Bachelor of Surgery degrees from the University of Cape Town in 2008.
+                    </p>
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold text-primary mb-4">Professional Qualifications</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li>MBChB - University of Cape Town (2008)</li>
+                            <li>Fellowship in General Surgery - College of Medicine of South Africa</li>
+                            <li>Registered with the Health Professions Council of South Africa</li>
+                            <li>Member of the South African Medical Association</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+<section id="services" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6">
+    
+    <!-- Centered Image -->
+    <div class="flex justify-center mb-6">
+      <img src="services.png" alt="Services" class="w-224 h-224 object-contain">
+    </div>
+
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">
+      PATIENT INFORMATION / RESOURCES
+    </h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto text-base text-gray-700">
+      <!-- Column 1 -->
+      <ul class="list-disc list-inside space-y-2">
+        <li>PRURITUS ANI</li>
+        <li>PERI-ANAL ABSCESS</li>
+        <li>PERI-ANAL FISSURE</li>
+        <li>PERI-ANAL FISTULA</li>
+        <li>RECTAL PROLAPSE ABDOMINAL REPAIR</li>
+        <li>AMPUTATION ABOVE KNEE</li>
+      </ul>
+      
+      <!-- Column 2 -->
+      <ul class="list-disc list-inside space-y-2">
+        <li>AMPUTATION BELOW KNEE</li>
+        <li>AMPUTATION THROUGH KNEE</li>
+        <li>AMPUTATION TOE</li>
+        <li>HERNIA FEMORAL OPEN REPAIR</li>
+        <li>HERNIA INCISIONAL OPEN OR LAPAROSCOPIC REPAIR</li>
+        <li>HERNIA INGUINAL OPEN REPAIR</li>
+      </ul>
+      
+      <!-- Column 3 -->
+      <ul class="list-disc list-inside space-y-2">
+        <li>TOENAIL EXCISION</li>
+        <li>GASTRECTOMY</li>
+        <li>HERNIA UMBILICAL OPEN REPAIR</li>
+        <li>HERNIA INGUINAL LAPAROSCOPIC REPAIR</li>
+        <li>LUMPS AND LESIONS EXCISION</li>
+        <li>RECTAL PROLAPSE DELORMES REPAIR</li>
+      </ul>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mt-6 text-base text-gray-700">
+      <!-- Column 4 -->
+      <ul class="list-disc list-inside space-y-2">
+        <li>APPENDISECTOMY LAPAROSCOPIC</li>
+        <li>APPENDISECTOMY OPEN</li>
+        <li>BOWEL FISTULA REPAIR</li>
+        <li>CLOSER STOMA</li>
+        <li>COLONOSCOPY</li>
+        <li>HEMORRHOIDECTOMY</li>
+      </ul>
+    </div>
+    
+    <div class="text-center mt-8">
+      <a href="#contact" class="inline-block bg-primary text-white px-6 py-2 rounded-lg shadow hover:bg-green-800 transition">Learn More</a>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Contact & Footer Section -->
+<footer id="contact" class="text-white py-12" 
+    style="background: url('footer_bg.png') repeat; background-size: auto;">
+  <div class="container mx-auto px-6">
+    
+    <!-- Card Wrapper -->
+    <div class="bg-white text-gray-800 rounded-2xl shadow-lg p-8">
+      <div class="flex flex-col md:flex-row justify-between">
+        
+        <!-- Doctor Info -->
+        <div class="mb-8 md:mb-0">
+          <h3 class="text-2xl font-bold text-primary mb-4">Dr. Boitumelo Nkgudi</h3>
+          <p class="mb-4">General Surgeon</p>
+          <div class="flex space-x-4 text-gray-600">
+            <a href="#" class="hover:text-primary">
+              <!-- Twitter -->
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557..."/></svg>
+            </a>
+            <a href="#" class="hover:text-primary">
+              <!-- Instagram -->
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163..."/></svg>
+            </a>
+            <a href="#" class="hover:text-primary">
+              <!-- LinkedIn -->
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14..."/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Our Info -->
+        <div class="mb-8 md:mb-0">
+          <h3 class="text-xl font-semibold mb-4">OUR INFO</h3>
+          <address class="not-italic">
+            <p class="mb-2">Suite G1</p>
+            <p class="mb-2">Mediclinic Emfuleni</p>
+            <p class="mb-2">6 Jan van Riebeeck Boulevard</p>
+            <p class="mb-2">Vanderbijlpark, 1900</p>
+            <p class="mb-2">Email: 
+              <a href="mailto:info@nkgudi.co.za" class="text-primary hover:underline">info@nkgudi.co.za</a>
+            </p>
+            <p>Tel: 
+              <a href="tel:+27180650848" class="text-primary hover:underline">(+27)18 065 0848</a>
+            </p>
+          </address>
+        </div>
+        
+        <!-- Office Hours -->
+        <div>
+          <h3 class="text-xl font-semibold mb-4">OFFICE HOURS</h3>
+          <ul class="space-y-2">
+            <li class="flex justify-between"><span>Monday</span><span>8:00 AM - 5:00 PM</span></li>
+            <li class="flex justify-between"><span>Tuesday</span><span>8:00 AM - 5:00 PM</span></li>
+            <li class="flex justify-between"><span>Wednesday</span><span>8:00 AM - 5:00 PM</span></li>
+            <li class="flex justify-between"><span>Thursday</span><span>8:00 AM - 5:00 PM</span></li>
+            <li class="flex justify-between"><span>Friday</span><span>8:00 AM - 3:00 PM</span></li>
+            <li class="flex justify-between"><span>Saturday</span><span>Closed</span></li>
+            <li class="flex justify-between"><span>Sunday</span><span>Closed</span></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-200">
+      <p>&copy; 2023 Dr. Boitumelo Nkgudi. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+
+     <!-- Modal Templates -->
+    <div id="pruritusModal" class="modal">
+        <span class="close-modal" onclick="closeModal('pruritusModal')">&times;</span>
+        <div class="modal-content">
+            <h3 class="text-2xl font-bold text-primary mb-4">PRURITUS ANI</h3>
+            <div class="prose">
+                <p><strong>Description:</strong> Pruritus ani is the medical term for persistent itching around the anus.</p>
+                
+                <h4 class="text-xl font-semibold mt-4">Common Causes:</h4>
+                <ul class="list-disc pl-5">
+                    <li>Skin irritation from moisture or friction</li>
+                    <li>Hemorrhoids or anal fissures</li>
+                    <li>Bacterial or fungal infections</li>
+                    <li>Certain foods (spicy, acidic, or caffeinated)</li>
+                </ul>
+                
+                <h4 class="text-xl font-semibold mt-4">Treatment Options:</h4>
+                <ul class="list-disc pl-5">
+                    <li>Improved hygiene practices</li>
+                    <li>Topical medications (steroids or antifungals)</li>
+                    <li>Dietary modifications</li>
+                    <li>Treatment of underlying conditions</li>
+                </ul>
+                
+                <div class="mt-6 p-4 bg-gray-100 rounded">
+                    <h4 class="font-semibold">When to See a Surgeon:</h4>
+                    <p>If symptoms persist despite conservative treatment, or if you notice bleeding, lumps, or other concerning symptoms.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="abscessModal" class="modal">
+        <span class="close-modal" onclick="closeModal('abscessModal')">&times;</span>
+        <div class="modal-content">
+            <h3 class="text-2xl font-bold text-primary mb-4">PERI-ANAL ABSCESS</h3>
+            <div class="prose">
+                <p><strong>Description:</strong> A painful collection of pus near the anus caused by infection.</p>
+                
+                <h4 class="text-xl font-semibold mt-4">Symptoms:</h4>
+                <ul class="list-disc pl-5">
+                    <li>Painful swelling near the anus</li>
+                    <li>Redness and warmth in the area</li>
+                    <li>Fever in some cases</li>
+                    <li>Pain with bowel movements</li>
+                </ul>
+                
+                <h4 class="text-xl font-semibold mt-4">Treatment:</h4>
+                <p>Most peri-anal abscesses require surgical drainage under local or general anesthesia.</p>
+                
+                <div class="mt-6 p-4 bg-gray-100 rounded">
+                    <h4 class="font-semibold">Recovery:</h4>
+                    <p>Typically takes 2-4 weeks. May require wound packing and antibiotics.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Scrolling header effect
+const scrollingHeader = document.getElementById('scrollingHeader');
+const navLogo = document.getElementById('navLogo');
+const navTitle = document.getElementById('navTitle');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    // Show logo when scrolling down, hide when at top
+    if (currentScroll > 50) { // Adjust threshold (50px) as needed
+        navLogo.classList.remove('hidden');
+        navLogo.classList.add('flex'); // Ensure flex layout
+        navTitle.classList.add('hidden');
+    } else {
+        navLogo.classList.add('hidden');
+        navTitle.classList.remove('hidden');
+    }
+    
+    // Existing scroll behavior for the contact bar
+    if (currentScroll <= 0) {
+        scrollingHeader.classList.remove('scrolling-header');
+        return;
+    }
+    
+    if (currentScroll > lastScroll && !scrollingHeader.classList.contains('scrolling-header')) {
+        scrollingHeader.classList.add('scrolling-header');
+    } else if (currentScroll < lastScroll && scrollingHeader.classList.contains('scrolling-header')) {
+        scrollingHeader.classList.remove('scrolling-header');
+    }
+    
+    lastScroll = currentScroll;
+});
+        
+        // Form submission
+        const appointmentForm = document.getElementById('appointmentForm');
+        
+        appointmentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send this data to a server
+            console.log({ name, email, phone, date, message });
+            
+            // Show success message
+            alert('Thank you for your appointment request. We will contact you shortly to confirm.');
+            
+            // Reset form
+            appointmentForm.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+    <script>
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside content
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // ... (keep existing JavaScript code) ...
+    </script>
+</body>
+</html>
