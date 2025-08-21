@@ -84,6 +84,27 @@
             cursor: pointer;
             color: white;
         }
+        .service-card {
+            background-color: #89452E;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        .section-bg {
+            background-color: #EB7931;
+        }
+        .btn-primary {
+            background-color: #4a7c59;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #3a6348;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body class="font-sans">
@@ -212,67 +233,210 @@
     </section>
 
     <!-- Services Section -->
-<section id="services" class="py-16 bg-gray-50">
-  <div class="container mx-auto px-6">
-    
-    <!-- Centered Image -->
-    <div class="flex justify-center mb-6">
-      <img src="services.png" alt="Services" class="w-224 h-224 object-contain">
-    </div>
+    <section id="services" class="py-16 section-bg">
+        <div class="container mx-auto px-6">
+            
+            <!-- Centered Image Above Header -->
+            <div class="flex justify-center mb-10 header-image">
+                <img src="https://drnkgudi.github.io/nkgudiweb/services.png" alt="Medical Services" class="w-full h-auto object-contain rounded-lg shadow-lg">
+            </div>
 
-    <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">
-      PATIENT INFORMATION / RESOURCES
-    </h2>
-    
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto text-base text-gray-700">
-      <!-- Column 1 -->
-      <ul class="list-disc list-inside space-y-2">
-        <li>PRURITUS ANI</li>
-        <li>PERI-ANAL ABSCESS</li>
-        <li>PERI-ANAL FISSURE</li>
-        <li>PERI-ANAL FISTULA</li>
-        <li>RECTAL PROLAPSE ABDOMINAL REPAIR</li>
-        <li>AMPUTATION ABOVE KNEE</li>
-      </ul>
-      
-      <!-- Column 2 -->
-      <ul class="list-disc list-inside space-y-2">
-        <li>AMPUTATION BELOW KNEE</li>
-        <li>AMPUTATION THROUGH KNEE</li>
-        <li>AMPUTATION TOE</li>
-        <li>HERNIA FEMORAL OPEN REPAIR</li>
-        <li>HERNIA INCISIONAL OPEN OR LAPAROSCOPIC REPAIR</li>
-        <li>HERNIA INGUINAL OPEN REPAIR</li>
-      </ul>
-      
-      <!-- Column 3 -->
-      <ul class="list-disc list-inside space-y-2">
-        <li>TOENAIL EXCISION</li>
-        <li>GASTRECTOMY</li>
-        <li>HERNIA UMBILICAL OPEN REPAIR</li>
-        <li>HERNIA INGUINAL LAPAROSCOPIC REPAIR</li>
-        <li>LUMPS AND LESIONS EXCISION</li>
-        <li>RECTAL PROLAPSE DELORMES REPAIR</li>
-      </ul>
-    </div>
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">
+                    PATIENT INFORMATION / RESOURCES
+                </h2>
+                <p class="text-white text-lg max-w-2xl mx-auto">
+                    Explore our comprehensive medical services and resources designed for your health and well-being.
+                </p>
+            </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mt-6 text-base text-gray-700">
-      <!-- Column 4 -->
-      <ul class="list-disc list-inside space-y-2">
-        <li>APPENDISECTOMY LAPAROSCOPIC</li>
-        <li>APPENDISECTOMY OPEN</li>
-        <li>BOWEL FISTULA REPAIR</li>
-        <li>CLOSER STOMA</li>
-        <li>COLONOSCOPY</li>
-        <li>HEMORRHOIDECTOMY</li>
-      </ul>
-    </div>
-    
-    <div class="text-center mt-8">
-      <a href="#contact" class="inline-block bg-primary text-white px-6 py-2 rounded-lg shadow hover:bg-green-800 transition">Learn More</a>
-    </div>
-  </div>
-</section>
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <!-- Card 1 -->
+                <div class="service-card p-6 text-white">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-white bg-opacity-20 p-2 rounded-full mr-3">
+                            <i class="fas fa-procedures text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Proctology Procedures</h3>
+                    </div>
+                    <ul class="list-none space-y-2">
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>PRURITUS ANI</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>PERI-ANAL ABSCESS</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>PERI-ANAL FISSURE</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>PERI-ANAL FISTULA</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>RECTAL PROLAPSE ABDOMINAL REPAIR</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>HEMORRHOIDECTOMY</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="service-card p-6 text-white">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-white bg-opacity-20 p-2 rounded-full mr-3">
+                            <i class="fas fa-wheelchair text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Amputation Services</h3>
+                    </div>
+                    <ul class="list-none space-y-2">
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>AMPUTATION ABOVE KNEE</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>AMPUTATION BELOW KNEE</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>AMPUTATION THROUGH KNEE</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>AMPUTATION TOE</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>TOENAIL EXCISION</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="service-card p-6 text-white">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-white bg-opacity-20 p-2 rounded-full mr-3">
+                            <i class="fas fa-stethoscope text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Hernia Treatments</h3>
+                    </div>
+                    <ul class="list-none space-y-2">
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>HERNIA FEMORAL OPEN REPAIR</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>HERNIA INCISIONAL OPEN OR LAPAROSCOPIC REPAIR</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>HERNIA INGUINAL OPEN REPAIR</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>HERNIA UMBILICAL OPEN REPAIR</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>HERNIA INGUINAL LAPAROSCOPIC REPAIR</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="service-card p-6 text-white">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-white bg-opacity-20 p-2 rounded-full mr-3">
+                            <i class="fas fa-laptop-medical text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Other Procedures</h3>
+                    </div>
+                    <ul class="list-none space-y-2">
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>GASTRECTOMY</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>LUMPS AND LESIONS EXCISION</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>RECTAL PROLAPSE DELORMES REPAIR</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>APPENDISECTOMY LAPAROSCOPIC</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>APPENDISECTOMY OPEN</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>BOWEL FISTULA REPAIR</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>CLOSER STOMA</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>COLONOSCOPY</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="text-center mt-12">
+                <a href="#contact" class="btn-primary inline-block text-white px-8 py-4 rounded-lg shadow-lg text-lg font-semibold">
+                    <i class="fas fa-info-circle mr-2"></i>Learn More About Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Info Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h3 class="text-3xl font-bold text-gray-800 mb-6">Comprehensive Medical Care</h3>
+                <p class="text-lg text-gray-600 mb-8">
+                    Our medical team is dedicated to providing the highest quality care with state-of-the-art facilities 
+                    and a patient-centered approach. We offer a wide range of surgical and non-surgical treatments 
+                    tailored to your specific needs.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <i class="fas fa-user-md text-4xl text-green-600 mb-4"></i>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Expert Surgeons</h4>
+                        <p class="text-gray-600">Board-certified specialists with years of experience</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <i class="fas fa-hospital text-4xl text-green-600 mb-4"></i>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Modern Facilities</h4>
+                        <p class="text-gray-600">State-of-the-art equipment and technology</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <i class="fas fa-heartbeat text-4xl text-green-600 mb-4"></i>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Patient Care</h4>
+                        <p class="text-gray-600">Comprehensive care from consultation to recovery</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
   <!-- Contact & Footer Section -->
